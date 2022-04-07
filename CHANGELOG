@@ -1,0 +1,106 @@
+V.4.22 (24.08.2003)
+    Small bugfix in line 270.
+    
+V.4,21 (24.08.2003)
+    Added a possibility to enale/disable auto add/remove plugins dialog feature, due to some possible problems on Geentoo.
+    To do:
+    - find the reason of unnormal behaviour on Gentoo
+    
+V.4.20 (17.08.2003)
+    Changed version number displayed in startup window.
+    Added SuperKaramba presence checking in install file.
+    
+V.4.10 (03.08.2003)
+    As it was written on TODO list the changes are as follows:
+    - added the feature to install or remove plugins via kdialog menu (the kdialog program is required)
+    - plugins to be installed are placed in ./plugins directory of main PNM dir, in *.tgz format
+    - some changes in install script - now we are testing if all necessary programs are present (nothing woild be installed if all requirements were not fulfilled)
+    
+V.4.00 (30.07.2003)
+    All the code was rewritten. Again :)
+    SuperKaramba version 0.29 is REQUIRED for PNM to work.
+    PNM 4.00 is now OBJECT-oriented. 
+    As much as we know, this is the very first SuperKaramba project using "user objects".
+    We have done some speed and optimization improovements.
+    PNM now uses some of the new features from SK 0.29 like BackgroundImage, RichText, meterClicked etc.
+    The proper "kfmclient" setting is required to use your browser for reading the news on web pages.
+    "xwininfo" is required to install and use PNM 4.00 (needed to find out your screen resolution).
+
+    Main changes:
+    - full GNU GPL license (according to dot.gnu.org specification)
+    - scrolling the logos up and down, to see more sites than 8
+    - added the possibility to decide on which side of desktop the PNM would be installed (during the installation)
+    - changed the PLUGINS structure - now all news uses one file feedparser.py located in main PNM4 directory
+    - removed 2 arrows responsible for scrolling the news lines within main panel - now it is hard-limited up to 14 text lines
+    - improoved the speed of zooming and "change-to-green" effects
+    - added "start screen"
+    - fixed a little bug with news link (it sometimes did not work)
+    - fixed a bug with "x_uparrow, x_downarrow, arrows" not defined (thanx niq)
+
+    Still to do in future releases:
+    - autofit/resize all texts and images to the screen resolution "on-the-fly" (quite difficult)
+    - autoinstall plugins from .tgz files
+    
+V.3.21 (10.07.2003)
+    Some small test changes to use new attachClickArea and execute commands in the future releases.
+    
+V.3.20 (21.06.2003)
+    *** WARNING *** - SuperKaramba 0.27 is REQUIRED to make PMN3.20 working.
+    UNICODE!!! Yes, thanks to SK authors, the utf is supported, so we can get a pleasure from national fonts.
+    A little bux-fix (for BSD* guys) - the header "/usr/bin/python" changed to "/usr/bin/env python" - you never know where the python is ;)
+    Changed the way of background loading to use karamba new features - it speeds up the PNM3 a LOT.
+    REMOVED almost all plugins from this package - to get more plugins, go to: http://www.kdelook.org/content/show.php?content=6534 
+    
+V.3.10 (07.06.2003)
+    Changed the way of loading images (buttons and arrows). Improoved speed and lowered CPU usage.
+    Repaired a bug in displaing news when there is no news. It caused a theme to loop and hang up.
+    Added new sites:
+    linuxweb.linuxindex.pl
+    www.medialink.pl
+    www.linuxfan.pl
+    www.foto.magicshop.pl
+    
+V.3.00 (31.05.2003)
+    Rewritten all the code from the beggining, to make it more efficient. 
+    Added "zooming" icons in button menu, changing color of news when "mouse over" and clicked.
+    More infos on actions taken (Loading, Updating etc.)
+    The data is downloaded only during initialisation of theme and after pressing "Reload" button.
+    Added scroll buttons in button menu - it is now possible to have as many plugins as wanted.
+    Added scroll buttons in news panel - you can scroll the news if there is more than 13 of them on one panel.
+    Moved the panel to right edge of screen and made it sliding.
+    Added "install" file to get some initial data and to create PNM3.theme file.
+    Added new panel Plugins:
+    www.wp.pl
+    www.rwo.pl
+    www.idg.pl
+    www.rp.pl
+    media.netpr.pl
+    
+V.2.07 (26.05.2003)
+    Changed scripts for downloading data to python (thanks stoodi).
+    Now it works much faster
+    
+V.2.06 (24.05.2003)
+    Corrected Gazeta.Pl loader script, finally.
+    Added some infos about actions beeing taken i.e. Loading, Updating.
+    Corrected error with clicking on news line.
+    
+V.2.05 (23.05.2003)
+    Minor bugfixes.
+    Changed the area where the mouse can be moved over to get the panel back.
+    Added clickable area over the news line to open the site with news text.
+    
+V.2.02 (22.05.2003)
+    Added JabberPl.org content
+    
+V.2.00 (22.05.2003)
+    This version is acctually a new module. 
+    It was totally rewritten to python. 
+    The only perl parts are inside "plugins" directories (script getNews and others)
+    The module consists now of only one panel, which slides out to the left of the screen.
+    Each news site has its own icon. Clicking on it opens the news from particular site.
+    The module is easy to expand with new sites. Read the PLUGIN_README to know the way of adding new sites.
+    There are some minor bugs like wrong encoding of polish fonts. We are working on it.
+    
+V.1.22 (17.05.2003)
+    Added panels for Rzeczpospolita.Pl and OpenOffice.Pl

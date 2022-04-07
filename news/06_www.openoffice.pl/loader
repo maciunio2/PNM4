@@ -1,0 +1,46 @@
+#!/usr/bin/perl
+#Created by maciunio <maciunio@ask-bsi.org> 16.05.2003
+#############################################################################################
+# Copyright 2003, Maciej "maciunio" Paczesny <maciunio (at) ask - bsi (dot) org>
+#                 Lukasz "lookanio" Purgal <lookanio (at) interia (dot) pl>
+#
+#    This file is part of "Polish News Module".
+#
+#    "Polish News Module" is free software; you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation; either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    "Polish News Module" is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with "Polish News Module"; if not, write to the Free Software
+#    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+#############################################################################################
+
+use LWP::UserAgent;
+use HTML::TokeParser;
+
+$url = "http://www.openoffice.pl";
+my $ua = new LWP::UserAgent;
+
+# CHANGE THIS TO YOUR PROXY SERVER
+#$ua->env_proxy;
+#$ua->proxy(['http'], 'http://localhost:8080/');
+
+my $req = HTTP::Request->new('GET', $url);
+my $res = $ua->request($req);
+$res->is_success or die("didn't work $!");
+
+my $page = $res->as_string;
+my $p = HTML::TokeParser->new(\$page);
+
+while ( my $token = $p->get_tag("img","/td") ) {
+    my $text = $p->get_trimmed_text();
+    if ($token->[1]{src}=~/ikony\/icon_/i) {
+	    print "$text\nhttp://www.openoffice.pl\n";
+    }
+}

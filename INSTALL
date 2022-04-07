@@ -1,0 +1,47 @@
+##########################################################################################################
+# Copyright 2003, Maciej "maciunio" Paczesny <maciunio (at) ask - bsi (dot) org>
+#                 Lukasz "lookanio" Purgal <lookanio (at) interia (dot) pl>
+#
+#    This file is part of "Polish News Module".
+#
+#    "Polish News Module" is free software; you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation; either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    "Polish News Module" is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with "Polish News Module"; if not, write to the Free Software
+#    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+##########################################################################################################
+
+1. All installation MUST be proceeded as the same user that is going to use PNM!!!
+   The reason is that we are going to remove old PNM4.rc file from "$HOME/.superkaramba" directory.
+   It is important only when you install PNM4 for the first time,
+
+2. Run the "install" file (it is in python, so just run it) with an argument:
+    "l" for LEFT side of desktop
+    "r" for RIGHT side of desktop
+   i.e.: ./install r
+   During the install process some necessary programs will be checked if they are present in the system. 
+   (superkaramba, xwininfo, kdialog and kfmclient)
+   This "install" script will generate the PNM4.theme file with necessary options like width, height etc.
+   
+3. DO NOT "configure;make;make install". Repeat - DO NOT DO THAT!
+
+4. VERY IMPORTANT: After installation change the owner of whole PNM4 directory to the user which is going to use it! 
+   (hint: 'chmod -R user.group PNM4')
+  
+5. If you have problems with proper displaying, try to set a variable auto_add_remove_plugins to 0 in PNM4.py file.
+   You probably will have some problems on Gentoo.
+
+6. Start your SuperKaramba with PNM4.theme file (i.e. "superkaramba /path/to/PNM/PNM4.theme")
+
+7. Enjoy
+
+:-)
+maciunio

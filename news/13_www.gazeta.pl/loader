@@ -1,0 +1,46 @@
+#!/usr/bin/perl
+# Created by maciunio <maciunio@ask-bsi.org> 13.05.2003
+# I know this is POOR perl, but i don't know this lang. If you DO - email me with a better programming
+
+use HTML::TokeParser;
+use LWP::Simple;
+
+my $URL = "http://www2.gazeta.pl/telewizja/0,0.html";
+
+my $page=get($URL);
+my $p = HTML::TokeParser->new(\$page);
+my $counter = 0;
+my $counter2 = 0;
+
+while ( my $token = $p->get_tag("td") ) {
+    my $text = $p->get_trimmed_text("/td");
+    if ($token->[1]{bgcolor} =~ /c7c2af/i) {
+	if ($text =~ /cej/i) {
+	} else {
+	    $old = $text;
+	}
+    }
+    if ($token->[1]{bgcolor} =~ /c2c4c7/i) {
+	my $go = $old . " - " . $text . "\n";
+	@tekst[$counter] = $go;
+	$counter += 1;
+    }
+}
+
+my $p2 = HTML::TokeParser->new(\$page);
+while ( my $token2 = $p2->get_tag("a", "/a")) {
+    if ( $token2 -> [1]{class} =~ /a9n/i ) {
+	if ( $token2 -> [1]{href} =~ /P_AKPA.html/i ) {
+	    my $go2 = "http://www2.gazeta.pl/telewizja/". $token2->[1]{href} . "\n";
+	    @url[$counter2] = $go2;
+	    $counter2 += 1;
+	}
+    }
+}
+
+$ccc = 0;
+while ( $ccc <= 9) {
+    print @tekst[$ccc];
+    print @url[$ccc];
+    $ccc += 1;
+}
